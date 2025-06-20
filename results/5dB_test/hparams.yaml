@@ -1,0 +1,205 @@
+data:
+  audio_max_len: 10
+  eval_folder: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/eval21_16k
+  eval_folder_44k: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/eval21
+  fs: 16000
+  net_subsample: 4
+  noise_train_folder: /data/chenyuanjian/anaconda3/envs/wilddesed/WildDESED/data/WildDESED/noise_train/
+  noise_val_folder: /data/chenyuanjian/anaconda3/envs/wilddesed/WildDESED/data/WildDESED/noise_val/
+  strong_folder: /data/chenyuanjian/anaconda3/envs/dcase2023/ATST-SED/data/strong_label_real_16K/strong_label_real/
+  strong_folder_44k: /data/chenyuanjian/anaconda3/envs/dcase2023/ATST-SED/data/strong_label_real_44100/strong_label_real/
+  strong_tsv: /data/chenyuanjian/anaconda3/envs/dcase2023/ATST-SED/data/annotations/audioset_strong_3373.tsv
+  synth_folder: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/train/synthetic21_train/soundscapes_16k/
+  synth_folder_44k: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/train/synthetic21_train/soundscapes/
+  synth_tsv: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/metadata/train/synthetic21_train/soundscapes.tsv
+  synth_val_dur: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/metadata/validation/synthetic21_validation/durations.tsv
+  synth_val_folder: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/validation/synthetic21_validation/soundscapes_16k/
+  synth_val_folder_44k: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/validation/synthetic21_validation/soundscapes/
+  synth_val_tsv: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/metadata/validation/synthetic21_validation/soundscapes.tsv
+  test_dur: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/metadata/validation/validation_durations.tsv
+  test_folder: /data/chenyuanjian/anaconda3/envs/wilddesed/Noise-robust-SED/wildDESED_clean/Lct_weak/5db/
+  test_folder_44k: /data/chenyuanjian/anaconda3/envs/wilddesed/Noise-robust-SED/wildDESED_clean/Lct_weak/5db_44100/
+  test_tsv: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/metadata/validation/validation.tsv
+  unlabeled_folder: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/train/unlabel_in_domain_16k/
+  unlabeled_folder_44k: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/train/unlabel_in_domain/
+  weak_folder: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/train/weak_16k/
+  weak_folder_44k: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/audio/train/weak/
+  weak_tsv: /data/chenyuanjian/anaconda3/envs/fdysed/FDY-SED-main/dataset/metadata/train/weak.tsv
+feats:
+  f_max: 8000
+  f_min: 0
+  hop_length: 256
+  n_filters: 2048
+  n_mels: 128
+  n_window: 2048
+  sample_rate: 16000
+hyerparameters:
+  gamma: 1.2
+  lamda_act: 0.012
+  lamda_cons: 0.05
+  lamda_sup: 0.2
+log_dir: ./exp/cyj_cl
+net:
+  activation: glu
+  aggregation_type: pool1d
+  attention: true
+  dropout: 0.5
+  dropout_recurrent: 0
+  embedding_size: 768
+  embedding_type: frame
+  kernel_size:
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  n_RNN_cell: 128
+  n_in_channel: 1
+  nb_filters:
+  - 16
+  - 32
+  - 64
+  - 128
+  - 128
+  - 128
+  - 128
+  nclass: 10
+  padding:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  pooling:
+  - - 2
+    - 2
+  - - 2
+    - 2
+  - - 1
+    - 2
+  - - 1
+    - 2
+  - - 1
+    - 2
+  - - 1
+    - 2
+  - - 1
+    - 2
+  rnn_layers: 2
+  rnn_type: BGRU
+  stride:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  use_embeddings: true
+net_sod:
+  activation: glu
+  aggregation_type: pool1d
+  attention: false
+  dropout: 0.5
+  dropout_recurrent: 0
+  embedding_size: 768
+  embedding_type: frame
+  kernel_size:
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  n_RNN_cell: 128
+  n_in_channel: 1
+  nb_filters:
+  - 16
+  - 32
+  - 64
+  - 128
+  - 128
+  - 128
+  - 128
+  nclass: 3
+  padding:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  pooling:
+  - - 2
+    - 2
+  - - 2
+    - 2
+  - - 1
+    - 2
+  - - 1
+    - 2
+  - - 1
+    - 2
+  - - 1
+    - 2
+  - - 1
+    - 2
+  rnn_layers: 2
+  rnn_type: BGRU
+  stride:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  use_embeddings: true
+opt:
+  lr: 0.001
+pretrained:
+  e2e: false
+  extracted_embeddings_dir: /data/chenyuanjian/AudioEmbedding_BEATS/wildDESED/SOD_SED/5db/cletest.hdf5
+  freezed: true
+  model: beats
+scaler:
+  dims:
+  - 1
+  - 2
+  normtype: minmax
+  savepath: ./scaler.ckpt
+  statistic: instance
+training:
+  accumulate_batches: 1
+  backend: auto
+  batch_size:
+  - 24
+  - 24
+  - 48
+  batch_size_val: 1
+  const_max: 2
+  deterministic: false
+  early_stop_patience: 200
+  ema_factor: 0.999
+  enable_progress_bar: true
+  gradient_clip: 0.0
+  median_window: 7
+  mixup: soft
+  n_epochs: 200
+  n_epochs_warmup: 50
+  n_test_thresholds: 50
+  num_workers: 6
+  obj_metric_synth_type: intersection
+  precision: 32
+  seed: 42
+  self_sup_loss: mse
+  val_thresholds:
+  - 0.5
+  validation_interval: 1
+  weak_split: 0.9
